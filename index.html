@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>StickyWall</title>
+</head>
+
+<body class="bg-gray-100 scroll-smooth">
+    <nav
+        class="navbar py-5 px-10 flex flex-col items-center md:mx-5 rounded-lg bg-white shadow-sm md:justify-evenly md:flex-row ">
+        <div class="logo space-y-4 float-left">
+            <span class="logoText text-2xl font-bold text-gray-800 md:text-3xl cursor-pointer">Sticky Wall - Web</span>
+        </div>
+        <div class="search my-4 md:my-0 clear-right items-center flex flex-col space-y-2 md:block">
+            <input
+                class="focus:border-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 px-5 py-2 placeholder:font-medium placeholder:text-gray-300 border-2 border-green-200 rounded-md duration-200"
+                type="text" id="query" placeholder="Search Notes">
+            <button
+                class="bg-transparent px-5 py-2 mx-4 rounded-md border-2 border-green-600 text-green-600 duration-300 hover:bg-green-600 hover:text-white"
+                id="searchBtn">Search</button>
+        </div>
+    </nav>
+
+    <div
+        class="text-center md:text-left addNote grid mx-auto my-4 bg-white h-80 p-6 rounded-lg shadow-lg space-y-4 w-3/4 ">
+        <span
+            class="text-gray-800 md:mx-2 text-xl md:text-2xl font-bold hover:underline hover:underline-offset-4 cursor-default order-1">AddNote</span>
+
+        <input style="margin:10px;"
+            class="focus:border-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 px-5 py-2 placeholder:font-medium placeholder:text-gray-300 border-2 border-gray-300 rounded-md duration-200 order-2"
+            type="text" id="title" placeholder="Title for your Note">
+        <textarea
+            class="border-gray-300 border-2 order-2 md:my-5 md:mx-2 py-4 px-6 focus:ring-2 focus:ring-gray-500 focus:border-none rounded-lg focus:ring-offset-4 duration-150 placeholder:text-lg placeholder:text-gray-300 focus:placeholder:text-gray-400 font-medium resize-none"
+            name="note" id="noteContent" cols="30" rows="20" placeholder="Content for Your Note"></textarea>
+        <button
+            class=" text-lg order-last bg-blue-600 shadow-inner rounded-md text-white px-5 py-2 hover:bg-blue-700 duration-300 active:bg-blue-500 active:duration-100 md:w-1/5 md:mx-2"
+            id="addNoteBtn">Add
+            Note</button>
+    </div>
+
+    <div class="h-0.5 bg-gray-300 w-11/12 mx-auto"></div>
+
+    <div class="container grid h-auto mx-auto my-4 px-5">
+        <span class="text-gray-800 text-2xl md:text-3xl font-bold cursor-default order-first mb-6">Your
+            Notes</span>
+        <ul class="grid md:grid-cols-3" id="allNotes">
+            <!-- The notes will be inserted here using javascript -->
+            <li class="my-2 mx-4 rounded noteCards" id="noteCard">
+                <div class="bg-white border-2 border-gray-200 w-full py-6 px-8  h-auto space-y-4">
+                    <h1 class="mx-4 font-bold text-xl">${note.title}</h1>
+                    <p class="mx-4 text-base" id="content">${note.content}</p>
+                    <button class="mx-4 text-sm order-last bg-blue-600 shadow-inner rounded-md text-white py-2 px-4 hover:bg-blue-700 duration-300 active:bg-blue-500 active:duration-100 md:w-1/4" onclick="deleteNote(this.id)" id="${index}">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="js/script.js"></script>
+
+</html>
