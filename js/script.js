@@ -39,7 +39,7 @@ const showNotes = ()=>{
 
 // Deleting a note
 const deleteNote = (index)=>{
-    let a = confirm("Are you sure you want to delet this note")
+    let a = confirm("Are you sure you want to delete this note")
     if (a == true){
         notesObj.splice(index, 1);
         localStorage.setItem("notes", JSON.stringify(notesObj));
@@ -51,14 +51,20 @@ const deleteNote = (index)=>{
 addBtn.addEventListener('click', ()=>{
     let noteContent = document.getElementById("noteContent");
     let ttl = document.getElementById("title");
-    notesObj.push({
+    if (noteContent.value.trim() == '' && ttl.value.trim() == ''){
+alert('Cannot Add Empty Notes');
+return;
+}
+else {
+notesObj.push({
         title : ttl.value,
         content:noteContent.value
     });
-    localStorage.setItem("notes",JSON.stringify(notesObj));
+  localStorage.setItem("notes",JSON.stringify(notesObj));
     noteContent.value = "";
     ttl.value = "";
     showNotes();
+}
 })
 
 
