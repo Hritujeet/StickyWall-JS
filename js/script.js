@@ -51,7 +51,7 @@ const deleteNote = (index)=>{
 addBtn.addEventListener('click', ()=>{
     let noteContent = document.getElementById("noteContent");
     let ttl = document.getElementById("title");
-    if (noteContent.value.trim() == '' && ttl.value.trim() == ''){
+    if (noteContent.value.trim() == '' || ttl.value.trim() == ''){
 alert('Cannot Add Empty Notes');
 return;
 }
